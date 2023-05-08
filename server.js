@@ -44,7 +44,7 @@ app.get('/app/rps/play', (req, res) => {
 app.post('/app/rps/play', (req, res) => {
     res.status(200).send(rps(req.body.shot)).end();});
 
-// play rps with an opponent - info comes from a request body (req.query.shot)
+// play rpsls with an opponent - info comes from a request body (req.query.shot)
 app.get('/app/rpsls/play', (req, res) => {
     res.status(200).send(rpsls(req.query.shot)).end();});
 
@@ -54,7 +54,7 @@ app.post('/app/rpsls/play', (req, res) => {
 
 // play rps with an opponent - info comes from route - restrict params to (rock|paper|scissors)
 app.get('/app/rps/play/:shot(rock|paper|scissors)', (req, res) => {
-    res.status(200).send(rpsls(req.params.shot)).end();});
+    res.status(200).send(rps(req.params.shot)).end();});
 
 // play rps with an opponent - info comes from route - restrict params to (rock|paper|scissors|lizard|spock)
 app.get('/app/rpsls/play/:shot(rock|paper|scissors|lizard|spock)', (req, res) => {
