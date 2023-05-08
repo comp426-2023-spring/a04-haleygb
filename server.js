@@ -40,9 +40,17 @@ app.get('/app/rpsls', (req, res) => {
 app.get('/app/rps/play', (req, res) => {
     res.status(200).send(rps(req.query.shot)).end();});
 
+// play rps with an opponent JSON
+app.post('/app/rps/play', (req, res) => {
+    res.status(200).send(rps(req.body.shot)).end();});
+
 // play rps with an opponent - info comes from a request body (req.query.shot)
 app.get('/app/rpsls/play', (req, res) => {
     res.status(200).send(rpsls(req.query.shot)).end();});
+
+// play rpsls with an opponent JSON
+app.post('/app/rpsls/play', (req, res) => {
+    res.status(200).send(rpsls(req.body.shot)).end();});
 
 // play rps with an opponent - info comes from route - restrict params to (rock|paper|scissors)
 app.get('/app/rps/play/:shot(rock|paper|scissors)', (req, res) => {
@@ -54,7 +62,7 @@ app.get('/app/rpsls/play/:shot(rock|paper|scissors|lizard|spock)', (req, res) =>
 
 // create a default route that sends a 404 status
 app.get('*', (req, res) => {
-    res.status(404).send("404 NOT FOUNT").end();});
+    res.status(404).send("404 NOT FOUND").end();});
 
 
 
